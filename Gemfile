@@ -29,3 +29,5 @@ gem 'sqlite3'
 # group :development, :test do
 #   gem 'webrat'
 # end
+
+gem 'apn_on_rails', :git=>'http://github.com/greg-barnett/apn_on_rails.git'
