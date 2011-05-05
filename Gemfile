@@ -30,4 +30,9 @@ gem 'sqlite3'
 #   gem 'webrat'
 # end
 
+group :development, :test do
+  gem "rspec-rails"
+  gem "webrat"
+end
+
 gem 'apn_on_rails', :git=>'http://github.com/greg-barnett/apn_on_rails.git'
