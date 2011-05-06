@@ -21,7 +21,7 @@
   </div>
   <div class="field">
     <%= f.label :alert %><br />
-    <%= f.text_field :alert %>
+    <%= f.text_area :alert, :rows=>5 %>
   </div>  
   <div class="field">
     <%= f.label :device_language %><br />
@@ -37,7 +37,7 @@
   </div>
   <div class="field">
     <%= f.label :custom_properties %><br />
-    <%= f.text_area :custom_properties %>
+    <%= f.text_area :custom_properties, :rows=>2 %>
   </div>
   <div class="actions">
     <%= f.submit %>
