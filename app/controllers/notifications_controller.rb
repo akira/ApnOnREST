@@ -41,7 +41,7 @@ class NotificationsController < ApplicationController
   # POST /notifications.xml
   def create
     @notification = APN::Notification.new(params[:apn_notification])
-
+    params[:apn_notification][:custom_properties] = nil
     respond_to do |format|
       if @notification.save
         format.html { redirect_to(notification_url(@notification), :notice => 'Notification was successfully created.') }
@@ -57,6 +57,7 @@ class NotificationsController < ApplicationController
   # PUT /notifications/1.xml
   def update
     @notification = APN::Notification.find(params[:id])
+    params[:apn_notification][:custom_properties] = nil    
 
     respond_to do |format|
       if @notification.update_attributes(params[:apn_notification])

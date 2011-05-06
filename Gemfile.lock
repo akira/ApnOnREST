@@ -1,6 +1,6 @@
 GIT
-  remote: http://github.com/greg-barnett/apn_on_rails.git
-  revision: e17aa59c4340d12159a5f1a95502b25907e40b86
+  remote: http://github.com/square/apn_on_rails.git
+  revision: c48da6cdb855829148da1c6a051966b930bf8974
   specs:
     apn_on_rails (0.4.2)
       configatron
