@@ -19,15 +19,16 @@
   <tr>
     <td><%= notification.device_id %></td>
     <td><%= notification.errors_nb %></td>
+    <td><%= notification.alert %></td>
     <td><%= notification.device_language %></td>
     <td><%= notification.sound %></td>
     <td><%= notification.badge %></td>
     <td><%= notification.created_at %></td>
     <td><%= notification.sent_at %></td>
     <td><%= notification.custom_properties %></td>
-    <td><%= link_to 'Show', notification %></td>
+    <td><%= link_to 'Show', notification_path(notification) %></td>
     <td><%= link_to 'Edit', edit_notification_path(notification) %></td>
-    <td><%= link_to 'Destroy', notification, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Destroy', notification_path(notification), :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>

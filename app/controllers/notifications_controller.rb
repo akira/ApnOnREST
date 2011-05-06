@@ -2,7 +2,7 @@ class NotificationsController < ApplicationController
   # GET /notifications
   # GET /notifications.xml
   def index
-    @notifications = Notification.all
+    @notifications = APN::Notification.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,7 +13,7 @@ class NotificationsController < ApplicationController
   # GET /notifications/1
   # GET /notifications/1.xml
   def show
-    @notification = Notification.find(params[:id])
+    @notification = APN::Notification.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -24,7 +24,7 @@ class NotificationsController < ApplicationController
   # GET /notifications/new
   # GET /notifications/new.xml
   def new
-    @notification = Notification.new
+    @notification = APN::Notification.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -34,17 +34,17 @@ class NotificationsController < ApplicationController
 
   # GET /notifications/1/edit
   def edit
-    @notification = Notification.find(params[:id])
+    @notification = APN::Notification.find(params[:id])
   end
 
   # POST /notifications
   # POST /notifications.xml
   def create
-    @notification = Notification.new(params[:notification])
+    @notification = APN::Notification.new(params[:apn_notification])
 
     respond_to do |format|
       if @notification.save
-        format.html { redirect_to(@notification, :notice => 'Notification was successfully created.') }
+        format.html { redirect_to(notification_url(@notification), :notice => 'Notification was successfully created.') }
         format.xml  { render :xml => @notification, :status => :created, :location => @notification }
       else
         format.html { render :action => "new" }
@@ -56,11 +56,11 @@ class NotificationsController < ApplicationController
   # PUT /notifications/1
   # PUT /notifications/1.xml
   def update
-    @notification = Notification.find(params[:id])
+    @notification = APN::Notification.find(params[:id])
 
     respond_to do |format|
-      if @notification.update_attributes(params[:notification])
-        format.html { redirect_to(@notification, :notice => 'Notification was successfully updated.') }
+      if @notification.update_attributes(params[:apn_notification])
+        format.html { redirect_to(notification_url(@notification), :notice => 'Notification was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -72,7 +72,7 @@ class NotificationsController < ApplicationController
   # DELETE /notifications/1
   # DELETE /notifications/1.xml
   def destroy
-    @notification = Notification.find(params[:id])
+    @notification = APN::Notification.find(params[:id])
     @notification.destroy
 
     respond_to do |format|

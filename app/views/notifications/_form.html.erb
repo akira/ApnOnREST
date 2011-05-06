@@ -1,4 +1,4 @@
-<%= form_for(@notification) do |f| %>
+<%= form_for(@notification, :url=>params[:action] == 'edit' ? notification_path(@notification) : notifications_path) do |f| %>
   <% if @notification.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@notification.errors.count, "error") %> prohibited this notification from being saved:</h2>
@@ -20,6 +20,10 @@
     <%= f.text_field :errors_nb %>
   </div>
   <div class="field">
+    <%= f.label :alert %><br />
+    <%= f.text_field :alert %>
+  </div>  
+  <div class="field">
     <%= f.label :device_language %><br />
     <%= f.text_field :device_language %>
   </div>
@@ -30,14 +34,6 @@
   <div class="field">
     <%= f.label :badge %><br />
     <%= f.text_field :badge %>
-  </div>
-  <div class="field">
-    <%= f.label :created_at %><br />
-    <%= f.datetime_select :created_at %>
-  </div>
-  <div class="field">
-    <%= f.label :sent_at %><br />
-    <%= f.datetime_select :sent_at %>
   </div>
   <div class="field">
     <%= f.label :custom_properties %><br />
