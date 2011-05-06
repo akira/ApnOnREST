@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Device:</b>
+  <%= @notification.device_id %>
+</p>
+
+<p>
+  <b>Errors nb:</b>
+  <%= @notification.errors_nb %>
+</p>
+
+<p>
+  <b>Device language:</b>
+  <%= @notification.device_language %>
+</p>
+
+<p>
+  <b>Sound:</b>
+  <%= @notification.sound %>
+</p>
+
+<p>
+  <b>Badge:</b>
+  <%= @notification.badge %>
+</p>
+
+<p>
+  <b>Created at:</b>
+  <%= @notification.created_at %>
+</p>
+
+<p>
+  <b>Sent at:</b>
+  <%= @notification.sent_at %>
+</p>
+
+<p>
+  <b>Custom properties:</b>
+  <%= @notification.custom_properties %>
+</p>
+
+
+<%= link_to 'Edit', edit_notification_path(@notification) %> |
+<%= link_to 'Back', notifications_path %>

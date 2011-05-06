@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>ID:</b>
+  <%= @app.id %>
+</p>
+
+<p>
+  <b>Apn dev cert:</b>
+  <%= !@app.apn_dev_cert.blank? %>
+</p>
+
+<p>
+  <b>Apn prod cert:</b>
+  <%= !@app.apn_prod_cert.blank? %>
+</p>
+
+
+<%= link_to 'Edit', edit_app_path(@app) %> |
+<%= link_to 'Back', apps_path %>

@@ -1,0 +1,37 @@
+<h1>Listing notifications</h1>
+
+<table>
+  <tr>
+    <th>Device</th>
+    <th>Errors nb</th>
+    <th>Device language</th>
+    <th>Sound</th>
+    <th>Badge</th>
+    <th>Created at</th>
+    <th>Sent at</th>
+    <th>Custom properties</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @notifications.each do |notification| %>
+  <tr>
+    <td><%= notification.device_id %></td>
+    <td><%= notification.errors_nb %></td>
+    <td><%= notification.device_language %></td>
+    <td><%= notification.sound %></td>
+    <td><%= notification.badge %></td>
+    <td><%= notification.created_at %></td>
+    <td><%= notification.sent_at %></td>
+    <td><%= notification.custom_properties %></td>
+    <td><%= link_to 'Show', notification %></td>
+    <td><%= link_to 'Edit', edit_notification_path(notification) %></td>
+    <td><%= link_to 'Destroy', notification, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Notification', new_notification_path %>

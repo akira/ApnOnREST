@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Token:</b>
+  <%= @device.token %>
+</p>
+
+<p>
+  <b>App:</b>
+  <%= @device.app_id %>
+</p>
+
+<p>
+  <b>Last registered at:</b>
+  <%= @device.last_registered_at %>
+</p>
+
+
+<%= link_to 'Edit', edit_device_path(@device) %> |
+<%= link_to 'Back', devices_path %>

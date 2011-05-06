@@ -1,0 +1,29 @@
+<h1>Listing devices</h1>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Token</th>
+    <th>App</th>
+    <th>Last registered at</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @devices.each do |device| %>
+  <tr>
+    <td><%= device.id %></td>
+    <td><%= device.token %></td>
+    <td><%= device.app_id %></td>
+    <td><%= device.last_registered_at %></td>
+    <td><%= link_to 'Show', device_url(device) %></td>
+    <td><%= link_to 'Edit', edit_device_path(device) %></td>
+    <td><%= link_to 'Destroy', device_url(device), :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Device', new_device_path %>

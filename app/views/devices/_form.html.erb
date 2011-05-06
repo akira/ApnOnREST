@@ -1,0 +1,29 @@
+<%= form_for(@device, :url=>params[:action] == 'edit' ? device_path(@device) : devices_path) do |f| %>
+  <% if @device.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@device.errors.count, "error") %> prohibited this device from being saved:</h2>
+
+      <ul>
+      <% @device.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :token %><br />
+    <%= f.text_field :token %>
+  </div>
+  <div class="field">
+    <%= f.label :app_id %><br />
+    <%= f.text_field :app_id %>
+  </div>
+  <div class="field">
+    <%= f.label :last_registered_at %><br />
+    <%= f.datetime_select :last_registered_at %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
