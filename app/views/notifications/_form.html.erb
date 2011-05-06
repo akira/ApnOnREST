@@ -1,4 +1,4 @@
-<%= form_for(@notification, :url=>params[:action] == 'edit' ? notification_path(@notification) : notifications_path) do |f| %>
+<%= form_for(@notification,:as=>:notification,:url=>params[:action] == 'edit' ? notification_path(@notification) : notifications_path) do |f| %>
   <% if @notification.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@notification.errors.count, "error") %> prohibited this notification from being saved:</h2>

@@ -40,7 +40,7 @@ class NotificationsController < ApplicationController
   # POST /notifications
   # POST /notifications.xml
   def create
-    @notification = APN::Notification.new(params[:apn_notification])
+    @notification = APN::Notification.new(params[:notification])
     set_custom_properties
     respond_to do |format|
       if @notification.save
@@ -59,7 +59,7 @@ class NotificationsController < ApplicationController
     @notification = APN::Notification.find(params[:id])
     set_custom_properties
     respond_to do |format|
-      if @notification.update_attributes(params[:apn_notification])
+      if @notification.update_attributes(params[:notification])
         format.html { redirect_to(notification_url(@notification), :notice => 'Notification was successfully updated.') }
         format.xml  { head :ok }
       else
@@ -83,12 +83,12 @@ class NotificationsController < ApplicationController
   
   protected
   def set_custom_properties
-    if(!params[:apn_notification][:custom_properties].blank?)
-      if(!params[:apn_notification][:custom_properties].include?("--- !map:ActiveSupport::HashWithIndifferentAccess"))
-        params[:apn_notification][:custom_properties] = JSON.parse(params[:apn_notification][:custom_properties])
+    if(!params[:notification][:custom_properties].blank?)
+      if(!params[:notification][:custom_properties].include?("--- !map:ActiveSupport::HashWithIndifferentAccess"))
+        params[:notification][:custom_properties] = JSON.parse(params[:notification][:custom_properties])
       end
     else
-      params[:apn_notification][:custom_properties] = nil
+      params[:notification][:custom_properties] = nil
     end      
   end
 end
