@@ -45,7 +45,7 @@ class NotificationsController < ApplicationController
     respond_to do |format|
       if @notification.save
         format.html { redirect_to(notification_url(@notification), :notice => 'Notification was successfully created.') }
-        format.xml  { render :xml => @notification, :status => :created, :location => @notification }
+        format.xml  { render :xml => @notification, :status => :created, :location => notification_path(@notification) }
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @notification.errors, :status => :unprocessable_entity }
