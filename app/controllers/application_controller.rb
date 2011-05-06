@@ -2,8 +2,6 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   before_filter :authenticated
 
-  SECURITY_TOKEN = "414CwGo4sMufV2zw"
-
   def set_current_user(uid)
     session[:user_id] = uid
   end
@@ -14,11 +12,16 @@ class ApplicationController < ActionController::Base
 
   def authenticated
     if(!Rails.env.test?)
-      if(params[:token] == SECURITY_TOKEN)
-        session[:is_admin] = true
-      end
       if(!session[:is_admin])
-        redirect_to '/'
+        is_authenticated = false      
+        authenticate_or_request_with_http_basic do |username, password|
+            if(username == RailsApn::Application.config.auth_username && password == RailsApn::Application.config.auth_password)
+              is_authenticated = true
+            end
+        end
+        if(is_authenticated)
+          session[:is_admin] = true
+        end
       end
     end
   end
