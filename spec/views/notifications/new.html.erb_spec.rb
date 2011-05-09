@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe "notifications/new.html.erb" do
   before(:each) do
-    assign(:notification, stub_model(Notification,
+    assign(:notification, stub_model(APN::Notification,
       :device_id => 1,
       :errors_nb => 1,
       :device_language => "MyString",

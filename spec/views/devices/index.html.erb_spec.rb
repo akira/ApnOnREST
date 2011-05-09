@@ -3,11 +3,11 @@ require 'spec_helper'
 describe "devices/index.html.erb" do
   before(:each) do
     assign(:devices, [
-      stub_model(Device,
+      stub_model(APN::Device,
         :token => "Token",
         :app_id => 1
       ),
-      stub_model(Device,
+      stub_model(APN::Device,
         :token => "Token",
         :app_id => 1
       )

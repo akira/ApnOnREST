@@ -40,7 +40,7 @@ class AppsController < ApplicationController
   # POST /apps
   # POST /apps.xml
   def create
-    @app = APN::App.new(params[:apn_app])
+    @app = APN::App.new(params[:app])
 
     respond_to do |format|
       if @app.save
@@ -59,7 +59,7 @@ class AppsController < ApplicationController
     @app = APN::App.find(params[:id])
 
     respond_to do |format|
-      if @app.update_attributes(params[:apn_app])
+      if @app.update_attributes(params[:app])
         format.html { redirect_to(app_url(@app), :notice => 'App was successfully updated.') }
         format.xml  { head :ok }
       else

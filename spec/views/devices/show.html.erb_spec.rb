@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe "devices/show.html.erb" do
   before(:each) do
-    @device = assign(:device, stub_model(Device,
+    @device = assign(:device, stub_model(APN::Device,
       :token => "Token",
       :app_id => 1
     ))

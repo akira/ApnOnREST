@@ -83,12 +83,14 @@ class NotificationsController < ApplicationController
   
   protected
   def set_custom_properties
-    if(!params[:notification][:custom_properties].blank?)
-      if(!params[:notification][:custom_properties].include?("--- !map:ActiveSupport::HashWithIndifferentAccess"))
-        params[:notification][:custom_properties] = JSON.parse(params[:notification][:custom_properties])
-      end
-    else
-      params[:notification][:custom_properties] = nil
-    end      
+    if(params[:notification])
+      if(!params[:notification][:custom_properties].blank?)
+        if(!params[:notification][:custom_properties].include?("--- !map:ActiveSupport::HashWithIndifferentAccess"))
+          params[:notification][:custom_properties] = JSON.parse(params[:notification][:custom_properties])
+        end
+      else
+        params[:notification][:custom_properties] = nil
+      end      
+    end
   end
 end
