@@ -45,7 +45,7 @@ class DevicesController < ApplicationController
     respond_to do |format|
       if @device.save
         format.html { redirect_to(device_url(@device), :notice => 'Device was successfully created.') }
-        format.xml  { render :xml => @device, :status => :created, :location => @device }
+        format.xml  { render :xml => @device, :status => :created, :location => device_url(@device) }
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @device.errors, :status => :unprocessable_entity }

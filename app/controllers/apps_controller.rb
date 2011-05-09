@@ -45,7 +45,7 @@ class AppsController < ApplicationController
     respond_to do |format|
       if @app.save
         format.html { redirect_to(app_url(@app), :notice => 'App was successfully created.') }
-        format.xml  { render :xml => @app, :status => :created, :location => @app }
+        format.xml  { render :xml => @app, :status => :created, :location => app_url(@app) }
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @app.errors, :status => :unprocessable_entity }
