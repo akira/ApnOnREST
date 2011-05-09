@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe "apps/new.html.erb" do
   before(:each) do
-    assign(:app, stub_model(App,
+    assign(:app, stub_model(APN::App,
       :apn_dev_cert => "MyText",
       :apn_prod_cert => "MyText"
     ).as_new_record)
@@ -13,8 +13,8 @@ describe "apps/new.html.erb" do
 
     # Run the generator again with the --webrat flag if you want to use webrat matchers
     assert_select "form", :action => apps_path, :method => "post" do
-      assert_select "textarea#app_apn_dev_cert", :name => "app[apn_dev_cert]"
-      assert_select "textarea#app_apn_prod_cert", :name => "app[apn_prod_cert]"
+      assert_select "input#app_apn_dev_cert", :name => "app[apn_dev_cert]"
+      assert_select "input#app_apn_prod_cert", :name => "app[apn_prod_cert]"
     end
   end
 end

@@ -40,7 +40,7 @@ class DevicesController < ApplicationController
   # POST /devices
   # POST /devices.xml
   def create
-    @device = APN::Device.new(params[:apn_device])
+    @device = APN::Device.new(params[:device])
 
     respond_to do |format|
       if @device.save
@@ -59,7 +59,7 @@ class DevicesController < ApplicationController
     @device = APN::Device.find(params[:id])
 
     respond_to do |format|
-      if @device.update_attributes(params[:apn_device])
+      if @device.update_attributes(params[:device])
         format.html { redirect_to(device_url(@device), :notice => 'Device was successfully updated.') }
         format.xml  { head :ok }
       else

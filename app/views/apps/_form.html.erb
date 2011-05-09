@@ -1,4 +1,4 @@
-<%= form_for(@app,:url=>params[:action] == 'edit' ? app_path(@app) : apps_path) do |f| %>
+<%= form_for(@app,:as=>:app, :url=>params[:action] == 'edit' ? app_path(@app) : apps_path) do |f| %>
   <% if @app.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@app.errors.count, "error") %> prohibited this app from being saved:</h2>
