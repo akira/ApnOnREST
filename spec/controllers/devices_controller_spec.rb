@@ -65,7 +65,7 @@ describe DevicesController do
       end
 
       it "re-renders the 'new' template" do
-        APN::Device.stub(:new) { mock_device(:save => false) }
+        APN::Device.stub(:new) { mock_device('new_record?'=>true, :save => false) }
         post :create, :device => {}
         response.should render_template("new")
       end

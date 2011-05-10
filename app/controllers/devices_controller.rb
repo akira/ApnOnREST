@@ -41,9 +41,10 @@ class DevicesController < ApplicationController
   # POST /devices.xml
   def create
     @device = APN::Device.new(params[:device])
-
+    existing = APN::Device.where(:token=>@device.token).first
+    @device = existing if(existing)
     respond_to do |format|
-      if @device.save
+      if !@device.new_record? || @device.save
         format.html { redirect_to(device_url(@device), :notice => 'Device was successfully created.') }
         format.xml  { render :xml => @device, :status => :created, :location => device_url(@device) }
       else
