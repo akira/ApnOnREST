@@ -40,8 +40,8 @@ class NotificationsController < ApplicationController
   # POST /notifications
   # POST /notifications.xml
   def create
+    set_custom_properties  
     @notification = APN::Notification.new(params[:notification])
-    set_custom_properties
     respond_to do |format|
       if @notification.save
         format.html { redirect_to(notification_url(@notification), :notice => 'Notification was successfully created.') }
