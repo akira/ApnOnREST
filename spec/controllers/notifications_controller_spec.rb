@@ -45,7 +45,7 @@ describe NotificationsController do
   describe "POST create" do
     describe "with valid params" do
       it "assigns a newly created notification as @notification" do
-        APN::Notification.stub(:new).with({'these' => 'params'}) { mock_notification(:save => true) }
+        APN::Notification.stub(:new).with({'these' => 'params', 'custom_properties'=>nil}) { mock_notification(:save => true) }
         post :create, :notification => {'these' => 'params'}
         assigns(:notification).should be(mock_notification)
       end
@@ -59,7 +59,7 @@ describe NotificationsController do
 
     describe "with invalid params" do
       it "assigns a newly created but unsaved notification as @notification" do
-        APN::Notification.stub(:new).with({'these' => 'params'}) { mock_notification(:save => false) }
+        APN::Notification.stub(:new).with({'these' => 'params', 'custom_properties'=>nil}) { mock_notification(:save => false) }
         post :create, :notification => {'these' => 'params'}
         assigns(:notification).should be(mock_notification)
       end
