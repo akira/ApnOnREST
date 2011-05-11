@@ -35,4 +35,4 @@ group :development, :test do
   gem "webrat"
 end
 
-gem 'apn_on_rails' , :git => 'http://github.com/square/apn_on_rails.git'
+gem 'apn_on_rails' , :git => 'git://github.com/akira/apn_on_rails.git'
